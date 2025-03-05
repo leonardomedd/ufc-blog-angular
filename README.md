@@ -1,27 +1,137 @@
-# UfcBlog
+# 🥊 UFC Insider Blog
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+![Angular](https://img.shields.io/badge/Angular-17-DD0031?style=for-the-badge&logo=angular)
+![TypeScript](https://img.shields.io/badge/TypeScript-4.9-3178C6?style=for-the-badge&logo=typescript)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3)
 
-## Development server
+Um blog moderno e responsivo focado em notícias, eventos e conteúdos relacionados ao UFC (Ultimate Fighting Championship), desenvolvido com Angular 17 e suas mais recentes funcionalidades.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## ✨ Funcionalidades
 
-## Code scaffolding
+- 🏠 **Página Inicial**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  - Cards de notícias em destaque
+  - Layout responsivo e moderno
+  - Navegação intuitiva
+  - Categorização de conteúdo
 
-## Build
+- 📰 **Páginas de Conteúdo**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+  - Visualização detalhada de artigos
+  - Sistema de comentários
+  - Imagens em alta resolução
+  - Informações de data e categoria
 
-## Running unit tests
+- 🎨 **Design**
+  - Tema escuro moderno
+  - Animações suaves
+  - Interface intuitiva
+  - Totalmente responsivo
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🛠️ Tecnologias Utilizadas
 
-## Running end-to-end tests
+- **Angular 17**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+  - Standalone Components
+  - Signals para gerenciamento de estado
+  - Nova sintaxe de controle de fluxo (@if, @for)
+  - Injeção de dependências otimizada
 
-## Further help
+- **TypeScript**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  - Tipagem forte
+  - Interfaces bem definidas
+  - Código mais seguro e manutenível
+
+- **CSS Moderno**
+  - Flexbox e Grid Layout
+  - Variáveis CSS
+  - Media Queries
+  - Animações e Transições
+
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── big-card/
+│   │   ├── small-card/
+│   │   └── menu/
+│   ├── pages/
+│   │   ├── home/
+│   │   └── content/
+│   ├── data/
+│   │   └── mock-data.ts
+│   └── services/
+│       └── article.service.ts
+├── assets/
+└── styles.css
+```
+
+## 🚀 Como Executar
+
+1. Clone o repositório:
+
+```bash
+git clone [URL_DO_REPOSITÓRIO]
+```
+
+2. Instale as dependências:
+
+```bash
+npm install
+```
+
+3. Execute o projeto:
+
+```bash
+ng serve
+```
+
+4. Acesse no navegador:
+
+```
+http://localhost:4200
+```
+
+## 📱 Responsividade
+
+O projeto é totalmente responsivo e se adapta aos seguintes breakpoints:
+
+- 📱 Mobile: < 768px
+- 💻 Desktop: ≥ 768px
+
+## 🎯 Funcionalidades Futuras
+
+- [ ] Integração com API real do UFC
+- [ ] Sistema de autenticação
+- [ ] Comentários interativos
+- [ ] Pesquisa avançada
+- [ ] Filtros por categoria
+- [ ] Modo claro/escuro
+- [ ] Internacionalização (i18n)
+
+## 🤝 Contribuição
+
+Contribuições são sempre bem-vindas! Para contribuir:
+
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 👨‍💻 Autor
+
+**Leonardo Medeiros**
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/leonardo-medeiros-de-almeida-996302254/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:leonardomedd@gmail.com)
+
+## 🙏 Agradecimentos
+
+- Avanade e DIO pelo programa Decola Tech 2024
+- UFC por inspirar o tema
+- Angular Team pelas excelentes ferramentas
+- Comunidade Open Source
