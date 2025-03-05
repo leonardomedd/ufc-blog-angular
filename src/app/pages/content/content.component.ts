@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Article } from '../../data/mock-data';
+import { Article, Comment, mockComments } from '../../data/mock-data';
 import { ArticleService } from '../../services/article.service';
 import { MenuComponent } from '../../components/menu/menu.component';
 import { DatePipe } from '@angular/common';
@@ -26,6 +26,22 @@ import { DatePipe } from '@angular/common';
           <div class="article-body">
             <p>{{ article.content }}</p>
           </div>
+
+          <section class="comments-section">
+            <h2>Comentários</h2>
+            @for (comment of articleComments; track comment.id) {
+              <div class="comment">
+                <div class="comment-header">
+                  <img [src]="comment.avatar" [alt]="comment.author" class="comment-avatar">
+                  <div class="comment-meta">
+                    <h3 class="comment-author">{{ comment.author }}</h3>
+                    <span class="comment-date">{{ comment.date | date:'dd/MM/yyyy' }}</span>
+                  </div>
+                </div>
+                <p class="comment-content">{{ comment.content }}</p>
+              </div>
+            }
+          </section>
 
           <button class="back-button" (click)="goBack()">Voltar</button>
         </main>
@@ -89,6 +105,61 @@ import { DatePipe } from '@angular/common';
       margin-bottom: 2rem;
     }
 
+    .comments-section {
+      margin: 3rem 0;
+      padding-top: 2rem;
+      border-top: 1px solid #333;
+    }
+
+    .comments-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: #ffffff;
+    }
+
+    .comment {
+      background-color: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+
+    .comment-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .comment-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-right: 1rem;
+      object-fit: cover;
+    }
+
+    .comment-meta {
+      flex: 1;
+    }
+
+    .comment-author {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 0;
+      color: #ffffff;
+    }
+
+    .comment-date {
+      font-size: 0.875rem;
+      color: #888888;
+    }
+
+    .comment-content {
+      color: #cccccc;
+      line-height: 1.6;
+      margin: 0;
+    }
+
     .back-button {
       background-color: #ff0000;
       color: white;
@@ -125,11 +196,21 @@ import { DatePipe } from '@angular/common';
       .article-body {
         font-size: 1rem;
       }
+
+      .comment {
+        padding: 1rem;
+      }
+
+      .comment-avatar {
+        width: 40px;
+        height: 40px;
+      }
     }
   `]
 })
 export class ContentComponent implements OnInit {
   article: Article | undefined;
+  articleComments: Comment[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -141,7 +222,9 @@ export class ContentComponent implements OnInit {
     this.route.params.subscribe(params => {
       const id = Number(params['id']);
       this.article = this.articleService.getArticleById(id);
-      if (!this.article) {
+      if (this.article) {
+        this.articleComments = mockComments.filter(comment => comment.articleId === id);
+      } else {
         this.router.navigate(['/']);
       }
     });
