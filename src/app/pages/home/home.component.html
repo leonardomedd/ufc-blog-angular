@@ -1,0 +1,16 @@
+<app-menu-bar></app-menu-bar>
+<div class="container">
+  <div class="main-content">
+    <app-big-card 
+      [post]="mainPost"
+    ></app-big-card>
+  </div>
+  
+  <div class="secondary-content">
+    @for (post of otherPosts; track post.id) {
+      <app-small-card 
+        [post]="post"
+      ></app-small-card>
+    }
+  </div>
+</div>
